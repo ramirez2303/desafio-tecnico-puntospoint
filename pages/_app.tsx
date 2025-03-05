@@ -1,13 +1,8 @@
 import "../styles/globals.css";
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
-
-const theme = createTheme({
-    palette: {
-        primary: { main: "#1976d2" },
-    },
-});
+import theme from "../themes";
 
 const queryClient = new QueryClient();
 
