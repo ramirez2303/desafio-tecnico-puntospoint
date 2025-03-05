@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 
 const theme = createTheme({
@@ -8,12 +9,16 @@ const theme = createTheme({
     },
 });
 
+const queryClient = new QueryClient();
+
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Component {...pageProps} />
-        </ThemeProvider>
+        <QueryClientProvider client={queryClient}>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </QueryClientProvider>
     );
 }
 
