@@ -29,6 +29,11 @@ const theme = createTheme({
                     fontWeight: 500,
                     fontSize: "14px",
                     lineHeight: "20px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    textDecoration: "none",
+                    gap: "8px",
 
                     "&:disabled": {
                         opacity: 0.8,
