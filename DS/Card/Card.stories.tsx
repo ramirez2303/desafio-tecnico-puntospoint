@@ -5,7 +5,7 @@ const meta = {
     title: "Example/design-system/Card",
     component: Card,
     parameters: {
-        layout: "centered",
+        layout: "fullscreen",
     },
     tags: ["autodocs"],
     argTypes: {},

@@ -29,6 +29,7 @@ const Card = ({
             boxShadow="0px 0px 7px 0px #00000026"
             boxSizing="border-box"
             padding="10px 20px 20px"
+            bgcolor="#ffffff"
         >
             <Typography variant="h6" fontSize="16px" fontWeight="600">
                 {title}

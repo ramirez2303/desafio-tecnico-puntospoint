@@ -18,7 +18,7 @@ const Switch = ({ items, onClick }: SwitchProps) => {
     // Calcula el ancho del item flotante basado en el texto más largo
     const maxWidth = useMemo(() => {
         const maxTextWidth = Math.max(
-            ...items.map((item) => item.label.length * 8) // 8px aprox por caracter
+            ...items.map((item) => item.label.length * 6 + 24) // 8px aprox por caracter
         );
         return maxTextWidth + 40; // 40px de padding e íconos
     }, [items]);
@@ -26,7 +26,7 @@ const Switch = ({ items, onClick }: SwitchProps) => {
     return (
         <Box
             width="auto"
-            height={60}
+            height={48}
             minWidth={maxWidth * 2 + 20} // Tamaño total + margen
             display="flex"
             alignItems="center"
@@ -34,14 +34,14 @@ const Switch = ({ items, onClick }: SwitchProps) => {
             borderRadius="30px"
             bgcolor="#ffffff"
             position="relative"
-            padding="5px"
+            padding="0px 7px"
             onClick={handleToggle}
             sx={{
                 transition: "all 0.3s ease-in-out",
                 cursor: "pointer",
             }}
         >
-            {items.map((item, index) => (
+            {items.map(({ label, Icon }, index) => (
                 <Box
                     key={index}
                     display="flex"
@@ -54,20 +54,26 @@ const Switch = ({ items, onClick }: SwitchProps) => {
                     position="relative"
                     zIndex={2}
                 >
-                    <div
-                        style={{
-                            width: "14px",
-                            height: "14px",
-                            backgroundColor:
-                                active !== (index === 1) ? "#644BBA" : "white",
-                            transition: "all 300ms ease-in-out",
-                        }}
-                    />
+                    {Icon && (
+                        <Icon
+                            style={{
+                                width: "24px",
+                                height: "24px",
+                                color:
+                                    active !== (index === 1)
+                                        ? "#644BBA"
+                                        : "white",
+                                transition: "all 300ms ease-in-out",
+                            }}
+                        />
+                    )}
                     <Typography
                         variant="body1"
                         color={active !== (index === 1) ? "#644BBA" : "white"}
+                        fontSize="16px"
+                        fontWeight="500"
                     >
-                        {item.label}
+                        {label}
                     </Typography>
                 </Box>
             ))}
@@ -77,7 +83,7 @@ const Switch = ({ items, onClick }: SwitchProps) => {
                 sx={{
                     position: "absolute",
                     top: "50%",
-                    left: active ? `calc(50% + 3px)` : "5px",
+                    left: active ? `calc(50% + 0px)` : "5px",
                     transform: "translateY(-50%)",
                     transition: "left 0.3s ease-in-out, width 0.3s ease-in-out",
                     display: "flex",
