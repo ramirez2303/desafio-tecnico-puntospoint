@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Chip from "./Chip";
-import CheckIcon from "@mui/icons-material/Check";
+import CheckIcon from '@mui/icons-material/Check';
 
 const meta = {
     title: "Example/design-system/Chip",

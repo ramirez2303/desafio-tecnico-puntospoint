@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import Flexbox from "../Flexbox";
 import { CardItem } from "../../lib/types/designSystem";
 import { Typography } from "@mui/material";
+import Flexbox from "../../components/elements/Flexbox";
 
 type CardProps = {
     width?: string;
