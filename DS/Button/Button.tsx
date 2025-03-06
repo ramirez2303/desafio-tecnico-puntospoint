@@ -6,6 +6,7 @@ type ButtonProps = {
     color?: "primary" | "secondary";
     disabled?: boolean;
     onClick?: () => void;
+    icon?: ReactNode;
     children?: ReactNode;
 };
 
@@ -14,6 +15,7 @@ const Button = ({
     color,
     disabled,
     onClick,
+    icon,
     children,
 }: ButtonProps) => {
     return (
@@ -23,6 +25,7 @@ const Button = ({
             disabled={disabled}
             onClick={onClick}
         >
+            {icon}
             {children}
         </MUIButton>
     );
