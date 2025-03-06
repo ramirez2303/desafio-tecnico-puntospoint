@@ -1,18 +1,26 @@
 import React, { Fragment } from "react";
 import Flexbox from "../Flexbox";
 import { CardItem } from "../../lib/types/designSystem";
+import { Typography } from "@mui/material";
 
 type CardProps = {
+    width?: string;
     title: string;
     items: CardItem[];
     subtitle?: string;
     subItems?: CardItem[];
 };
 
-const Card = ({ title, items, subtitle, subItems }: CardProps) => {
+const Card = ({
+    width = "320px",
+    title,
+    items,
+    subtitle,
+    subItems,
+}: CardProps) => {
     return (
         <Flexbox
-            width="320px"
+            width={width}
             direction="column"
             justifyContent="flex-start"
             alignItems="center"
@@ -22,22 +30,54 @@ const Card = ({ title, items, subtitle, subItems }: CardProps) => {
             boxSizing="border-box"
             padding="10px 20px 20px"
         >
-            <span>{title}</span>
+            <Typography variant="h6" fontSize="16px" fontWeight="600">
+                {title}
+            </Typography>
             {items.map((item) => (
                 <Flexbox width="100%" justifyContent="space-between">
-                    <span>{item.label}</span>
-                    <span>{item.value}</span>
+                    <Typography
+                        variant="body2"
+                        fontSize="14px"
+                        fontWeight="400"
+                    >
+                        {item.label}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        fontSize="14px"
+                        fontWeight="400"
+                    >
+                        {item.value}
+                    </Typography>
                 </Flexbox>
             ))}
             {subtitle && subItems && (
                 <Fragment>
                     <Flexbox width="100%" justifyContent="flex-start">
-                        <span>{subtitle}</span>
+                        <Typography
+                            variant="h6"
+                            fontSize="16px"
+                            fontWeight="600"
+                        >
+                            {subtitle}
+                        </Typography>
                     </Flexbox>
                     {subItems?.map((item) => (
                         <Flexbox width="100%" justifyContent="space-between">
-                            <span>{item.label}</span>
-                            <span>{item.value}</span>
+                            <Typography
+                                variant="body2"
+                                fontSize="14px"
+                                fontWeight="400"
+                            >
+                                {item.label}
+                            </Typography>
+                            <Typography
+                                variant="body2"
+                                fontSize="14px"
+                                fontWeight="400"
+                            >
+                                {item.value}
+                            </Typography>
                         </Flexbox>
                     ))}
                 </Fragment>
