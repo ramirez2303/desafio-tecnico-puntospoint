@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import Flexbox from "./Flexbox";
 
 const meta = {
-    title: "Example/Flexbox",
+    title: "Example/design-system/Flexbox",
     component: Flexbox,
     parameters: {
         layout: "centered",

@@ -67,6 +67,65 @@ const theme = createTheme({
                 },
             },
         },
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                    borderRadius: "8px",
+                    padding: "6px 12px",
+                    fontSize: "14px",
+                    lineHeight: "20px",
+                    fontWeight: 500,
+                },
+                filled: {
+                    backgroundColor: "#E7DFF8",
+                    color: "#1D192B",
+                    transition: "all 300ms ease-in-out",
+
+                    "&:hover": {
+                        backgroundColor: "#E7DFF8",
+                        filter: "brightness(0.95)",
+                        boxShadow: "0px 1px 3px 1px #00000026",
+                    },
+
+                    "&:active": {
+                        backgroundColor: "#E7DFF8",
+                        boxShadow:
+                            "0px 1px 3px 1px #00000026, 0px 1px 2px 0px #0000004D",
+                    },
+                },
+                outlined: {
+                    backgroundColor: "transparent",
+                    color: "#48454E",
+                    border: "1px solid #79757F",
+                    transition: "all 300ms ease-in-out",
+
+                    "&:hover": {
+                        backgroundColor: "#48454E14",
+                        transition: "all 300ms",
+                    },
+
+                    "&:active": {
+                        backgroundColor: "#48454E1F",
+                        boxShadow:
+                            "0px 1px 3px 1px #00000026, 0px 1px 2px 0px #0000004D",
+                    },
+                },
+                deleteIcon: {
+                    color: "rgba(0, 0, 0, 0.54)",
+                    transition: "all 300ms ease-in-out",
+
+                    "&:hover": {
+                        color: "rgba(0, 0, 0, 0.75)",
+                    },
+
+                    "&:active": {
+                        color: "rgba(0, 0, 0, 0.7)",
+                        transition: "all 100ms ease-in-out",
+                        transform: "scale(0.95)",
+                    },
+                },
+            },
+        },
     },
 });
 
