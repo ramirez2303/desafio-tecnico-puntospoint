@@ -27,9 +27,31 @@ export type DaysDataType = {
     label: string;
 };
 
+export type MonthValueType =
+    | "all"
+    | "january"
+    | "february"
+    | "march"
+    | "april"
+    | "may"
+    | "june"
+    | "july"
+    | "august"
+    | "september"
+    | "october"
+    | "november"
+    | "december";
+
+export type MonthDataType = {
+    value: MonthValueType;
+    label: string;
+};
+
 export type DateType = {
     date: DateValueType;
-    day: DaysValueType;
+    day: DaysValueType | undefined;
+    month: MonthValueType | undefined;
+    lastSixMonth: MonthValueType | undefined;
 };
 
 export type ChartCategoryType = "client" | "transaction";

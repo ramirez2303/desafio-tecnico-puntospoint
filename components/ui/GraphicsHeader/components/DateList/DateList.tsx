@@ -3,21 +3,53 @@ import Flexbox from "../../../../elements/Flexbox";
 import Chip from "../../../../../DS/Chip";
 import Button from "../../../../../DS/Button";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import { DateValueType, DaysValueType } from "../../../../../lib/types/views";
+import {
+    DateValueType,
+    DaysValueType,
+    MonthValueType,
+} from "../../../../../lib/types/views";
 import { useDashboardStore } from "../../../../../lib/store/useDashboardStore";
-import { dates, days } from "../../../../../lib/data";
+import {
+    dates,
+    days,
+    lastSixMonths,
+    lastSixYears,
+    months,
+} from "../../../../../lib/data";
 
 const DateList = () => {
     const { dateSelected, setDateSelected } = useDashboardStore();
+    const showList =
+        dateSelected.date === "max" ||
+        dateSelected.date === "1year" ||
+        dateSelected.date === "7days" ||
+        dateSelected.date === "6months";
+    const listToShow =
+        dateSelected.date === "max"
+            ? lastSixYears
+            : dateSelected.date === "1year"
+            ? months
+            : dateSelected.date === "6months"
+            ? lastSixMonths
+            : days;
 
     const handleSelect = (
-        data: Partial<DateValueType | DaysValueType>,
-        type: "date" | "day"
+        data: Partial<DateValueType | DaysValueType | MonthValueType>,
+        type: "date" | "day" | "month" | "lastSixMonth"
     ) => {
-        if (type === "day" && dateSelected.day === data) {
+        // if (type === "day" && dateSelected.day === data) {
+        //     setDateSelected({
+        //         ...dateSelected,
+        //         day: "all",
+        //     });
+        // } else {
+        // }
+        if (type === "date" && dateSelected.date !== data) {
             setDateSelected({
-                ...dateSelected,
+                date: data as DateValueType,
                 day: "all",
+                month: "all",
+                lastSixMonth: "all",
             });
         } else {
             setDateSelected({
@@ -70,24 +102,43 @@ const DateList = () => {
             <Flexbox
                 justifyContent="flex-start"
                 alignItems="center"
+                flexWrap="wrap"
                 gap="10px"
                 style={{
                     position: "relative",
-                    top: dateSelected.date === "7days" ? "0" : "-20px",
-                    opacity: dateSelected.date === "7days" ? 1 : 0,
-                    pointerEvents:
-                        dateSelected.date === "7days" ? "all" : "none",
+                    top: showList ? "0" : "-20px",
+                    opacity: showList ? 1 : 0,
+                    pointerEvents: showList ? "all" : "none",
                     transition: "250ms ease-in-out",
                 }}
             >
-                {days.map((day, ix) => (
+                {listToShow.map((item, ix) => (
                     <Chip
-                        key={day.value + ix}
-                        label={day.label}
+                        key={item.value + ix}
+                        label={item.label}
                         variant={
-                            day.value !== dateSelected.day ? "text" : "filled"
+                            (
+                                dateSelected.date === "1year"
+                                    ? item.value === dateSelected.month
+                                    : dateSelected.date === "6months"
+                                    ? item.value === dateSelected.lastSixMonth
+                                    : item.value === dateSelected.day
+                            )
+                                ? "filled"
+                                : "text"
                         }
-                        onClick={handleSelect.bind(null, day.value, "day")}
+                        onClick={handleSelect.bind(
+                            null,
+                            item.value as Partial<
+                                DateValueType | DaysValueType | MonthValueType
+                            >,
+
+                            dateSelected.date === "1year"
+                                ? "month"
+                                : dateSelected.date === "6months"
+                                ? "lastSixMonth"
+                                : "day"
+                        )}
                     />
                 ))}
             </Flexbox>

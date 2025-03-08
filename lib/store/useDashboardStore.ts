@@ -13,6 +13,9 @@ export const useDashboardStore = create<AppState>((set) => ({
     dateSelected: {
         date: "today",
         day: "all",
+        month: "all",
+        lastSixMonth: "all",
+        lastSixYears: "all",
     },
     setDateSelected: (date: DateType) => set({ dateSelected: date }),
 
