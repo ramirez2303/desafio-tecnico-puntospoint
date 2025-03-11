@@ -34,8 +34,8 @@ const Card = ({
             <Typography variant="h6" fontSize="16px" fontWeight="600">
                 {title}
             </Typography>
-            {items.map((item) => (
-                <Flexbox width="100%" justifyContent="space-between">
+            {items.map((item, ix) => (
+                <Flexbox key={ix} width="100%" justifyContent="space-between">
                     <Typography
                         variant="body2"
                         fontSize="14px"
@@ -63,8 +63,12 @@ const Card = ({
                             {subtitle}
                         </Typography>
                     </Flexbox>
-                    {subItems?.map((item) => (
-                        <Flexbox width="100%" justifyContent="space-between">
+                    {subItems?.map((item, ix) => (
+                        <Flexbox
+                            key={ix}
+                            width="100%"
+                            justifyContent="space-between"
+                        >
                             <Typography
                                 variant="body2"
                                 fontSize="14px"

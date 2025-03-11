@@ -18,6 +18,7 @@ const CardsAccordion = ({ isDropdownOpen }: DropdownCardsAccordion) => {
                 .fill({})
                 .map((item, ix) => (
                     <Flexbox
+                        key={ix}
                         width="100%"
                         marginTop={
                             ix === 0 ? "" : isDropdownOpen ? "15px" : "-50%"

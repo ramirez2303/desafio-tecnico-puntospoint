@@ -1,17 +1,15 @@
 import React from "react";
 import Table from "../../../../../DS/Table";
-import { DateTableData } from "../../../../../lib/data/table";
-import { useDashboardStore } from "../../../../../lib/store/useDashboardStore";
+import { useTableData } from "../../../../../hooks/useTableData";
 
 const DateTable = () => {
-    const { dateSelected } = useDashboardStore();
-    const dateDataToShow = DateTableData[dateSelected.date];
+    const { states } = useTableData();
 
     return (
         <Table
-            title={dateDataToShow?.title ?? ""}
-            headerItems={dateDataToShow?.headerItems ?? []}
-            rows={dateDataToShow?.rows ?? []}
+            title={states?.dateData?.title ?? ""}
+            headerItems={states?.dateData?.headerItems ?? []}
+            rows={states?.dateData?.rows ?? []}
         />
     );
 };

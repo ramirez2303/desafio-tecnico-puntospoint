@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import SwitchWithIcons from "./Switch";
 import { fn } from "@storybook/test";
+import LeaderboardIcon from "@mui/icons-material/Leaderboard";
+import StarIcon from "@mui/icons-material/Star";
 
 const meta = {
     title: "Example/design-system/SwitchWithIcons",
@@ -14,8 +16,8 @@ const meta = {
     },
     args: {
         items: [
-            { label: "valor1gsaf", icon: "icon1", value: "1" },
-            { label: "valor2", icon: "icon2", value: "2" },
+            { label: "valor1gsaf", Icon: LeaderboardIcon, value: "1" },
+            { label: "valor2", Icon: StarIcon, value: "2" },
         ],
         onClick: fn(),
     },
@@ -28,8 +30,8 @@ type Story = StoryObj<typeof meta>;
 export const Switch: Story = {
     args: {
         items: [
-            { label: "valor1gsaf", icon: "icon1", value: "1" },
-            { label: "valor2", icon: "icon2", value: "2" },
+            { label: "valor1gsaf", Icon: LeaderboardIcon, value: "1" },
+            { label: "valor2", Icon: StarIcon, value: "2" },
         ],
     },
 };

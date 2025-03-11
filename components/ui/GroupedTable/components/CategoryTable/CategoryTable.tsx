@@ -1,23 +1,26 @@
 import React from "react";
 import Table from "../../../../../DS/Table";
-import { useDashboardStore } from "../../../../../lib/store/useDashboardStore";
-import { CategoryTableData } from "../../../../../lib/data/table";
+import Flexbox from "../../../../elements/Flexbox";
+import { useTableData } from "../../../../../hooks/useTableData";
 
 const CategoryTable = () => {
-    const { viewSelected } = useDashboardStore();
-    const categoryDataToShow =
-        viewSelected?.chartCategory !== undefined
-            ? CategoryTableData?.[viewSelected.chartCategory]
-            : undefined;
+    const { states } = useTableData();
 
-    if (!!categoryDataToShow)
-        return (
+    return (
+        <Flexbox
+            sx={{
+                opacity: !!states?.categoryData ? 1 : 0,
+                pointerEvents: !!states?.categoryData ? "all" : "none",
+                transition: "all 300ms ease-in-out",
+            }}
+        >
             <Table
-                title={categoryDataToShow?.title ?? ""}
-                headerItems={categoryDataToShow?.headerItems ?? []}
-                rows={categoryDataToShow?.rows ?? []}
+                title={states?.categoryData?.title ?? ""}
+                headerItems={states?.categoryData?.headerItems ?? []}
+                rows={states?.categoryData?.rows ?? []}
             />
-        );
+        </Flexbox>
+    );
 };
 
 export default CategoryTable;

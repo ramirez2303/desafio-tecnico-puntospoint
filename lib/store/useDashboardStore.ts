@@ -1,7 +1,10 @@
 import { create } from "zustand";
 import { DateType, ViewType } from "../types";
 
-type AppState = {
+type DashBoardState = {
+    typeSelected: "graph" | "pulse";
+    setTypeSelected: (type: "graph" | "pulse") => void;
+
     dateSelected: DateType;
     setDateSelected: (date: DateType) => void;
 
@@ -9,7 +12,10 @@ type AppState = {
     setViewSelected: (view: ViewType) => void;
 };
 
-export const useDashboardStore = create<AppState>((set) => ({
+export const useDashboardStore = create<DashBoardState>((set) => ({
+    typeSelected: "graph",
+    setTypeSelected: (type: "graph" | "pulse") => set({ typeSelected: type }),
+
     dateSelected: {
         date: "today",
         day: "all",

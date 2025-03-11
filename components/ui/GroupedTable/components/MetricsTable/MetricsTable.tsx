@@ -1,23 +1,26 @@
 import React from "react";
-import { useDashboardStore } from "../../../../../lib/store/useDashboardStore";
 import Table from "../../../../../DS/Table";
-import { MetricsTableData } from "../../../../../lib/data/table";
+import Flexbox from "../../../../elements/Flexbox";
+import { useTableData } from "../../../../../hooks/useTableData";
 
 const MetricsTable = () => {
-    const { viewSelected } = useDashboardStore();
-    const metricsDataToShow =
-        viewSelected.chartMetric !== undefined
-            ? MetricsTableData?.[viewSelected.chartMetric]
-            : undefined;
+    const { states } = useTableData();
 
-    if (!!metricsDataToShow)
-        return (
+    return (
+        <Flexbox
+            sx={{
+                opacity: !!states?.metricsData ? 1 : 0,
+                pointerEvents: !!states?.metricsData ? "all" : "none",
+                transition: "all 300ms ease-in-out",
+            }}
+        >
             <Table
-                title={metricsDataToShow?.title ?? ""}
-                headerItems={metricsDataToShow?.headerItems ?? []}
-                rows={metricsDataToShow?.rows ?? []}
+                title={states?.metricsData?.title ?? ""}
+                headerItems={states?.metricsData?.headerItems ?? []}
+                rows={states?.metricsData?.rows ?? []}
             />
-        );
+        </Flexbox>
+    );
 };
 
 export default MetricsTable;

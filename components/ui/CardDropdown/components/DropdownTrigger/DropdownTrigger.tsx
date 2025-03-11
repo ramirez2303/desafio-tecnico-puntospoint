@@ -5,6 +5,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 import StarIcon from "@mui/icons-material/Star";
 import CustomIcon from "../../../../elements/CustomIcon";
+import { useDashboardStore } from "../../../../../lib/store/useDashboardStore";
 
 type DropdownTriggerProps = {
     isDropdownOpen: boolean;
@@ -15,6 +16,8 @@ const DropdownTrigger = ({
     isDropdownOpen,
     toggleDropdown,
 }: DropdownTriggerProps) => {
+    const { typeSelected, setTypeSelected } = useDashboardStore();
+
     return (
         <Flexbox
             width="100%"
@@ -34,7 +37,11 @@ const DropdownTrigger = ({
                         Icon: StarIcon,
                     },
                 ]}
-                onClick={() => {}}
+                onClick={() => {
+                    setTypeSelected(
+                        typeSelected === "graph" ? "pulse" : "graph"
+                    );
+                }}
             />
             <Flexbox
                 onClick={toggleDropdown}

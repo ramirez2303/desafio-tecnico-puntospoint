@@ -23,28 +23,41 @@ const Navbar = () => {
 
     return (
         <Flexbox
-            width="80vw"
+            width="100%"
             height="60px"
             bgcolor="#FFFFFF"
-            justifyContent="space-between"
+            justifyContent="center"
             alignItems="center"
             boxShadow="0px 4px 10px 0px #0000001A"
             boxSizing="border-box"
             padding="12px 60px"
         >
-            <Flexbox sx={{ width: "250px", opacity: 0 }}>
-                <div></div>
-            </Flexbox>
-            <Flexbox gap="25px">
-                {navbarData.map((item, ix) => (
-                    <Button key={ix} variant={ix === 0 ? "contained" : "text"}>
-                        {item.label}
-                    </Button>
-                ))}
-            </Flexbox>
-            <Flexbox gap="20px">
-                <Typography variant="body1">Pamela Rojas Gonzalez</Typography>
-                <CustomIcon Icon={KeyboardArrowDownIcon} size={24} />
+            <Flexbox
+                width="80vw"
+                justifyContent="space-between"
+                alignItems="center"
+            >
+                <Flexbox sx={{ width: "250px", opacity: 0 }}>
+                    <div></div>
+                </Flexbox>
+                <nav>
+                    <Flexbox gap="25px">
+                        {navbarData.map((item, ix) => (
+                            <Button
+                                key={ix}
+                                variant={ix === 0 ? "contained" : "text"}
+                            >
+                                {item.label}
+                            </Button>
+                        ))}
+                    </Flexbox>
+                </nav>
+                <Flexbox gap="20px">
+                    <Typography variant="body1">
+                        Pamela Rojas Gonzalez
+                    </Typography>
+                    <CustomIcon Icon={KeyboardArrowDownIcon} size={24} />
+                </Flexbox>
             </Flexbox>
         </Flexbox>
     );

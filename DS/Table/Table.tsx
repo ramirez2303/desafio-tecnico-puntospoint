@@ -62,23 +62,27 @@ const Table = ({ title, headerItems, rows }: TableProps) => {
             <MUITable aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        {headerItems.map((item) => (
-                            <CustomTableCell>{item}</CustomTableCell>
+                        {headerItems.map((item, ix) => (
+                            <CustomTableCell key={item + ix}>
+                                {item}
+                            </CustomTableCell>
                         ))}
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map((row, ix) => (
                         <TableRow
-                            key={ix}
+                            key={"row" + ix}
                             sx={{
                                 "&:last-child td, &:last-child th": {
                                     border: 0,
                                 },
                             }}
                         >
-                            {row.map((item) => (
-                                <CustomTableCell>{item}</CustomTableCell>
+                            {row.map((item, ix) => (
+                                <CustomTableCell key={item + ix}>
+                                    {item}
+                                </CustomTableCell>
                             ))}
                         </TableRow>
                     ))}
