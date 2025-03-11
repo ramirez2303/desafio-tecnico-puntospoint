@@ -72,3 +72,10 @@ export type ViewType = {
     chartCategory: ChartCategoryType | undefined;
     chartMetric: ChartMetricType | undefined;
 };
+
+export type DataTableType = {
+    key: string;
+    title: string;
+    headerItems: string[];
+    rows: string[][];
+};

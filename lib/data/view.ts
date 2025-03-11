@@ -5,8 +5,8 @@ import {
     DaysDataType,
     MonthDataType,
     MonthValueType,
-} from "./types/views";
-import { getLastSixMonths, getLastSixYears } from "./utils";
+} from "../types";
+import { getLastSixMonths, getLastSixYears } from "../utils";
 
 export const dates: DateDataType[] = [
     {

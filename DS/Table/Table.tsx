@@ -55,6 +55,7 @@ const Table = ({ title, headerItems, rows }: TableProps) => {
                 fontSize="14px"
                 fontWeight="500"
                 textAlign="center"
+                marginBottom="10px"
             >
                 {title}
             </Typography>

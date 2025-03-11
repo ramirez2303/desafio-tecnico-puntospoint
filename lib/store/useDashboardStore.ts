@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { DateType, ViewType } from "../types/views";
+import { DateType, ViewType } from "../types";
 
 type AppState = {
     dateSelected: DateType;

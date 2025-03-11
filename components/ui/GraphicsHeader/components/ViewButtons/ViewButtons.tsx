@@ -1,13 +1,12 @@
-import React from "react";
-import Flexbox from "../../../../elements/Flexbox";
-import Chip from "../../../../../DS/Chip";
 import CheckIcon from "@mui/icons-material/Check";
+import Chip from "../../../../../DS/Chip";
+import { categorys, metrics } from "../../../../../lib/data/view";
 import { useDashboardStore } from "../../../../../lib/store/useDashboardStore";
 import {
     ChartCategoryType,
     ChartMetricType,
-} from "../../../../../lib/types/views";
-import { categorys, metrics } from "../../../../../lib/data";
+} from "../../../../../lib/types";
+import Flexbox from "../../../../elements/Flexbox";
 
 const ViewButtons = () => {
     const { viewSelected, setViewSelected } = useDashboardStore();

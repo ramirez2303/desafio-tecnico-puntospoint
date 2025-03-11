@@ -1,21 +1,20 @@
-import React from "react";
-import Flexbox from "../../../../elements/Flexbox";
-import Chip from "../../../../../DS/Chip";
-import Button from "../../../../../DS/Button";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import {
-    DateValueType,
-    DaysValueType,
-    MonthValueType,
-} from "../../../../../lib/types/views";
-import { useDashboardStore } from "../../../../../lib/store/useDashboardStore";
+import Button from "../../../../../DS/Button";
+import Chip from "../../../../../DS/Chip";
 import {
     dates,
     days,
     lastSixMonths,
     lastSixYears,
     months,
-} from "../../../../../lib/data";
+} from "../../../../../lib/data/view";
+import { useDashboardStore } from "../../../../../lib/store/useDashboardStore";
+import {
+    DateValueType,
+    DaysValueType,
+    MonthValueType,
+} from "../../../../../lib/types";
+import Flexbox from "../../../../elements/Flexbox";
 
 const DateList = () => {
     const { dateSelected, setDateSelected } = useDashboardStore();
