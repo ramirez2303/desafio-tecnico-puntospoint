@@ -4,6 +4,8 @@ import Button from "../../../DS/Button";
 import { Typography } from "@mui/material";
 import CustomIcon from "../../elements/CustomIcon";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Popover from "../../../DS/Popover";
+import ProfileContent from "../ProfileContent";
 
 const Navbar = () => {
     const navbarData = [
@@ -33,11 +35,14 @@ const Navbar = () => {
             padding="12px 60px"
         >
             <Flexbox
-                width="80vw"
+                width={{ md: "100%", lg: "100%", xl: "80vw" }}
                 justifyContent="space-between"
                 alignItems="center"
             >
-                <Flexbox sx={{ width: "250px", opacity: 0 }}>
+                <Flexbox
+                    width={{ md: "150px", lg: "250px" }}
+                    sx={{ opacity: 0 }}
+                >
                     <div></div>
                 </Flexbox>
                 <nav>
@@ -52,11 +57,26 @@ const Navbar = () => {
                         ))}
                     </Flexbox>
                 </nav>
-                <Flexbox gap="20px">
-                    <Typography variant="body1">
-                        Pamela Rojas Gonzalez
-                    </Typography>
-                    <CustomIcon Icon={KeyboardArrowDownIcon} size={24} />
+                <Flexbox
+                    gap="20px"
+                    sx={{
+                        cursor: "pointer",
+                    }}
+                >
+                    <Popover content={<ProfileContent />}>
+                        <Typography
+                            variant="body1"
+                            maxWidth={{ md: "100px", lg: "150px", xl: "100%" }}
+                            whiteSpace="nowrap"
+                            sx={{
+                                textOverflow: "ellipsis",
+                                overflow: "hidden",
+                            }}
+                        >
+                            Pamela Rojas Gonzalez
+                        </Typography>
+                        <CustomIcon Icon={KeyboardArrowDownIcon} size={24} />
+                    </Popover>
                 </Flexbox>
             </Flexbox>
         </Flexbox>

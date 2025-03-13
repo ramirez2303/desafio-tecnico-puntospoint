@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import * as echarts from "echarts";
+import useWindowSize from "../../../hooks/useWindowSize";
 
 const BiaxialChart = () => {
+    const { windowWidth } = useWindowSize();
     const chartRef = useRef(null);
 
     useEffect(() => {
@@ -115,9 +117,9 @@ const BiaxialChart = () => {
 
         chart.setOption(option);
         return () => chart.dispose();
-    }, []);
+    }, [windowWidth]);
 
-    return <div ref={chartRef} style={{ width: "1200px", height: "400px" }} />;
+    return <div ref={chartRef} style={{ width: "100%", height: "400px" }} />;
 };
 
 export default BiaxialChart;

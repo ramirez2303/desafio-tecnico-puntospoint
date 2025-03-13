@@ -8,6 +8,7 @@ type ButtonProps = {
     onClick?: () => void;
     icon?: ReactNode;
     children?: ReactNode;
+    padding?: string;
 };
 
 const Button = ({
@@ -17,6 +18,7 @@ const Button = ({
     onClick,
     icon,
     children,
+    padding,
 }: ButtonProps) => {
     return (
         <MUIButton
@@ -24,6 +26,11 @@ const Button = ({
             color={color}
             disabled={disabled}
             onClick={onClick}
+            sx={{
+                whiteSpace: "nowrap",
+                boxSizing: "border-box",
+                padding: padding,
+            }}
         >
             {icon}
             {children}

@@ -34,7 +34,7 @@ const Home: NextPage = () => {
                     <GroupedTable />
                 </section>
 
-                <aside role="complementary">
+                <aside role="complementary" className="aside-container">
                     <CardDropdown />
                 </aside>
             </main>

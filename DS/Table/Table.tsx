@@ -26,6 +26,7 @@ const CustomTableCell = ({ children }: { children: React.ReactNode }) => {
                             ? "#1C1B1E14"
                             : "",
                     transition: "background-color 0.3s ease-in-out",
+                    whiteSpace: "nowrap",
                 }}
             >
                 {children}

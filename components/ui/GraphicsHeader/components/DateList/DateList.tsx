@@ -63,10 +63,11 @@ const DateList = () => {
             direction="column"
             justifyContent="flex-start"
             alignItems="flex-start"
-            gap="30px"
+            gap="22px"
         >
             <Flexbox
                 width="100%"
+                height="40px"
                 justifyContent="space-between"
                 alignItems="center"
             >
@@ -74,6 +75,7 @@ const DateList = () => {
                     justifyContent="flex-start"
                     alignItems="center"
                     gap="10px"
+                    flexWrap="wrap"
                 >
                     {dates.map((date, ix) => (
                         <Chip
@@ -92,11 +94,16 @@ const DateList = () => {
                         />
                     ))}
                 </Flexbox>
-                <Flexbox>
-                    <Button variant="text" icon={<VisibilityIcon />}>
-                        Ver detalle
-                    </Button>
-                </Flexbox>
+                <Button
+                    variant="text"
+                    icon={
+                        <VisibilityIcon
+                            style={{ width: "20px", height: "20px" }}
+                        />
+                    }
+                >
+                    Ver detalle
+                </Button>
             </Flexbox>
             <Flexbox
                 justifyContent="flex-start"

@@ -4,12 +4,12 @@ import DropdownTrigger from "./components/DropdownTrigger";
 import CardsAccordion from "./components/CardsAccordion";
 
 const CardDropdown = () => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(true);
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
     return (
         <Flexbox
-            width="320px"
+            width="100%"
             direction="column"
             justifyContent="flex-start"
             alignItems="center"
